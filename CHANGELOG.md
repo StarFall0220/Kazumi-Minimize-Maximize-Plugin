@@ -12,6 +12,22 @@ All notable changes to this project are documented here.
 - Added a Chinese callout and a language/documentation table to `README.md`,
   while keeping the English documentation unchanged.
 
+## [1.1.0] - 2026-10-20
+
+### Added
+
+- **Portable Windows x64 build** (`Kazumi-2.3.9-Window-Controls-win64.zip`):
+  extract and run, no Flutter/Visual Studio/Git required.
+- **One-click patcher** (`Kazumi-Window-Controls-Patcher-v1.1.0.zip`):
+  double-click `install.bat`, pick the Kazumi folder; automatic backup and
+  `uninstall.bat` restore.
+- Bilingual install guides: `INSTALL.md` (English) and `INSTALL.zh-CN.md` (简体中文).
+- `SHA256SUMS.txt` for both packages.
+
+### Documentation
+
+- Includes the Chinese documentation work listed under Unreleased.
+
 ## [1.0.0] - 2026-10-20
 
 ### Added
