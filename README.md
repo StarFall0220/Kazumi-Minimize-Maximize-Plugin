@@ -21,6 +21,31 @@
 > available in **[README.zh-CN.md](README.zh-CN.md)**
 > （[中文构建指南](docs/BUILD.zh-CN.md)）.
 
+<details>
+<summary><b>中文简介（点击展开）</b></summary>
+
+为 **Kazumi 2.3.9** 的无边框标题栏补上「最小化 / 最大化 / 还原」按钮：
+
+- 位置在原有「关闭」按钮左侧，顺序为 `－ □ ✕`；
+- 三个按钮同为 Material `IconButton`，尺寸、图标大小、颜色、垂直对齐完全一致；
+- 纯 Dart 实现，不改任何 C++ / 原生代码，也没有新增依赖；
+- 最大化状态实时同步（支持双击标题栏、`Win` + `↑` 等系统方式）；
+- 开启「系统标题栏」时自动隐藏，不会和原生按钮重复。
+
+安装（完整步骤见中文说明）：
+
+```bash
+git clone --branch 2.3.9 --depth 1 https://github.com/Predidit/Kazumi.git
+cd Kazumi
+git apply /path/to/patch/window-buttons.patch
+flutter pub get
+flutter build windows --release
+```
+
+更多内容：[中文完整说明](README.zh-CN.md) · [中文构建指南](docs/BUILD.zh-CN.md)
+
+</details>
+
 ![Kazumi with minimize, maximize and close buttons](docs/images/home.png)
 
 ## Why
