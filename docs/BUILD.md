@@ -1,5 +1,54 @@
 # Build guide
 
+> **Don't want to build?** Two prebuilt packages are available in the
+> [latest release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest).
+> The complete guide is in [INSTALL.md](../INSTALL.md).
+
+## 0. Prebuilt packages (no build required)
+
+Both packages are **Windows x64** and target **Kazumi 2.3.9**.
+
+### Option A — Portable build
+
+`Kazumi-2.3.9-Window-Controls-win64.zip` (~40 MB)
+
+1. Download the zip from the latest release.
+2. Extract the **whole folder** somewhere writable (do not run `kazumi.exe`
+   directly from inside the archive).
+3. Run `kazumi.exe`. The top-right corner shows `🕘 － □ ✕`:
+   `－` minimize, `□` maximize / `❐` restore, `✕` close.
+
+No Flutter, Visual Studio or Git is needed. Settings, history and downloads stay in
+`%APPDATA%\com.example\kazumi` and are shared with any other Kazumi installation.
+
+> **SmartScreen:** choose **More info → Run anyway**. The build is unsigned, exactly
+> like the upstream Kazumi release.
+>
+> **Auto-update:** updating Kazumi overwrites `data/app.so`; re-apply the patcher
+> afterwards, or keep using the portable build without in-app updates.
+
+### Option B — One-click patcher
+
+`Kazumi-Window-Controls-Patcher-v1.1.0.zip` (~6 MB)
+
+1. **Fully exit Kazumi**, including the tray icon.
+2. Extract the zip and double-click `install.bat`.
+3. Select the folder that contains `kazumi.exe`
+   (for example `D:\Kazumi_windows_2.3.9`).
+4. Start Kazumi.
+
+The patcher replaces only these two files:
+
+```text
+data\app.so
+data\flutter_assets\fonts\MaterialIcons-Regular.otf
+```
+
+and copies both originals to `window-controls-backup-<timestamp>\` first.
+`uninstall.bat` restores the latest backup.
+
+Download checksums are in `SHA256SUMS.txt` in the same release.
+
 ## Requirements
 
 | Tool | Version | Notes |

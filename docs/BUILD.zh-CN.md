@@ -2,6 +2,51 @@
 
 本文是 [BUILD.md](BUILD.md) 的中文版，步骤一一对应。
 
+> **不想自己构建？** 最新 [Release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest)
+> 提供两个免编译成品，完整说明见 [INSTALL.zh-CN.md](../INSTALL.zh-CN.md)。
+
+## 零、免编译成品（两种用法）
+
+两个包都只面向 **Windows x64 + Kazumi 2.3.9**。
+
+### 方式 A：便携版
+
+`Kazumi-2.3.9-Window-Controls-win64.zip`（约 40 MB）
+
+1. 从最新 Release 下载；
+2. 把**整个文件夹**解压到可写目录（不要在压缩包里直接运行 `kazumi.exe`）；
+3. 双击 `kazumi.exe`，右上角显示 `🕘 － □ ✕`：
+   `－` 最小化、`□` 最大化 / `❐` 还原、`✕` 关闭。
+
+不需要 Flutter / Visual Studio / Git。设置、历史记录、下载仍保存在
+`%APPDATA%\com.example\kazumi`，与其他 Kazumi 安装共用。
+
+> **SmartScreen**：点「更多信息」→「仍要运行」。构建和官方 Kazumi 一样没有签名。
+>
+> **自动更新**：更新 Kazumi 会覆盖 `data/app.so`，更新后重新运行补丁包即可；
+> 或者直接使用便携版、不使用应用内更新。
+
+### 方式 B：一键补丁包
+
+`Kazumi-Window-Controls-Patcher-v1.1.0.zip`（约 6 MB）
+
+1. **完全退出 Kazumi**（包括右下角托盘图标）；
+2. 解压压缩包，双击 `install.bat`；
+3. 选择包含 `kazumi.exe` 的文件夹（例如 `D:\Kazumi_windows_2.3.9`）；
+4. 启动 Kazumi。
+
+补丁只替换这两个文件：
+
+```text
+data\app.so
+data\flutter_assets\fonts\MaterialIcons-Regular.otf
+```
+
+替换前会自动备份到 `window-controls-backup-<时间戳>\`；
+双击 `uninstall.bat` 可恢复最近一次备份。
+
+下载校验值见同一 Release 里的 `SHA256SUMS.txt`。
+
 ## 环境要求
 
 | 工具 | 版本 | 说明 |
