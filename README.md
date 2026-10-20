@@ -13,8 +13,13 @@
 </p>
 
 <p align="center">
-  <a href="README.zh-CN.md">简体中文</a> · English
+  <a href="README.zh-CN.md"><b>简体中文完整说明</b></a> · English
 </p>
+
+> **中文读者 / Chinese readers:** this file stays in English. A complete, self-contained
+> Chinese guide — quick start, all three installation methods, build steps and FAQ — is
+> available in **[README.zh-CN.md](README.zh-CN.md)**
+> （[中文构建指南](docs/BUILD.zh-CN.md)）.
 
 ![Kazumi with minimize, maximize and close buttons](docs/images/home.png)
 
@@ -134,7 +139,8 @@ flutter build windows --release \
   --dart-define=KAZUMI_KEY=...
 ```
 
-See [docs/BUILD.md](docs/BUILD.md) for the full and the snapshot-only build flows.
+See [docs/BUILD.md](docs/BUILD.md) (English) or [docs/BUILD.zh-CN.md](docs/BUILD.zh-CN.md)
+（中文）for the full and the snapshot-only build flows.
 
 ## Verification
 
@@ -155,6 +161,7 @@ Verified on Windows 11 with Kazumi 2.3.9:
 .
 ├── docs/
 │   ├── BUILD.md
+│   ├── BUILD.zh-CN.md
 │   └── images/
 ├── patch/
 │   └── window-buttons.patch
@@ -168,6 +175,16 @@ Verified on Windows 11 with Kazumi 2.3.9:
 
 Revert the patch (`git apply -R patch/window-buttons.patch`) or restore your previous
 `app.so` and icon font. The rest of Kazumi is untouched.
+
+## Documentation
+
+| Language | Document |
+| --- | --- |
+| English | `README.md` (this file) |
+| 简体中文 | [README.zh-CN.md](README.zh-CN.md) — complete Chinese guide |
+| Build guide (English) | [docs/BUILD.md](docs/BUILD.md) |
+| 构建指南（中文） | [docs/BUILD.zh-CN.md](docs/BUILD.zh-CN.md) |
+| Changelog | [CHANGELOG.md](CHANGELOG.md) |
 
 ## Credits
 

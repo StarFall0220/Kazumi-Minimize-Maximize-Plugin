@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented here.
 
+## [Unreleased]
+
+### Documentation
+
+- Rewrote `README.zh-CN.md` as a complete, self-contained Chinese guide:
+  quick start, all three installation methods, build steps, verification and FAQ.
+- Added `docs/BUILD.zh-CN.md`, the Chinese counterpart of the build guide.
+- Added a Chinese callout and a language/documentation table to `README.md`,
+  while keeping the English documentation unchanged.
+
 ## [1.0.0] - 2026-10-20
 
 ### Added
