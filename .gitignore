@@ -1,0 +1,18 @@
+# Build output
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.so
+*.dll
+*.exe
+
+# Logs
+*.log
+
+# Editors
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

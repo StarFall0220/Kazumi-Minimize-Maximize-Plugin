@@ -1,0 +1,150 @@
+diff --git a/lib/bean/appbar/sys_app_bar.dart b/lib/bean/appbar/sys_app_bar.dart
+index f673e03..8ae489f 100644
+--- a/lib/bean/appbar/sys_app_bar.dart
++++ b/lib/bean/appbar/sys_app_bar.dart
+@@ -2,6 +2,7 @@ import 'dart:io';
+ import 'package:flutter/material.dart';
+ import 'package:flutter/services.dart';
+ import 'package:flutter_modular/flutter_modular.dart';
++import 'package:kazumi/bean/appbar/window_control_buttons.dart';
+ import 'package:kazumi/bean/widget/embedded_native_control_area.dart';
+ import 'package:kazumi/services/platform/desktop_window_config.dart';
+ import 'package:window_manager/window_manager.dart';
+@@ -31,6 +32,7 @@ class SysAppBar extends StatelessWidget implements PreferredSizeWidget {
+     final appBarActions = <Widget>[...?actions];
+     if (desktop) {
+       if (!DesktopWindowConfig.showWindowButton) {
++        appBarActions.add(const WindowControlButtons());
+         appBarActions.add(CloseButton(onPressed: () => windowManager.close()));
+       }
+       appBarActions.add(const SizedBox(width: 8));
+diff --git a/lib/bean/appbar/window_control_buttons.dart b/lib/bean/appbar/window_control_buttons.dart
+new file mode 100644
+index 0000000..55fb3c1
+--- /dev/null
++++ b/lib/bean/appbar/window_control_buttons.dart
+@@ -0,0 +1,82 @@
++import 'package:flutter/material.dart';
++import 'package:window_manager/window_manager.dart';
++
++/// Minimize and maximize/restore buttons for the frameless desktop window.
++///
++/// They are plain [IconButton]s, i.e. the exact same widget that the Material
++/// [CloseButton] next to them is built from, so they automatically share its
++/// minimum size, icon size, color and vertical alignment without any extra
++/// padding or constraints.
++class WindowControlButtons extends StatefulWidget {
++  const WindowControlButtons({super.key});
++
++  @override
++  State<WindowControlButtons> createState() => _WindowControlButtonsState();
++}
++
++class _WindowControlButtonsState extends State<WindowControlButtons>
++    with WindowListener {
++  bool _isMaximized = false;
++
++  @override
++  void initState() {
++    super.initState();
++    windowManager.addListener(this);
++    _syncMaximizedState();
++  }
++
++  Future<void> _syncMaximizedState() async {
++    final maximized = await windowManager.isMaximized();
++    if (!mounted || maximized == _isMaximized) {
++      return;
++    }
++    setState(() => _isMaximized = maximized);
++  }
++
++  @override
++  void dispose() {
++    windowManager.removeListener(this);
++    super.dispose();
++  }
++
++  @override
++  void onWindowMaximize() {
++    if (mounted) {
++      setState(() => _isMaximized = true);
++    }
++  }
++
++  @override
++  void onWindowUnmaximize() {
++    if (mounted) {
++      setState(() => _isMaximized = false);
++    }
++  }
++
++  Future<void> _toggleMaximize() async {
++    if (await windowManager.isMaximized()) {
++      await windowManager.unmaximize();
++    } else {
++      await windowManager.maximize();
++    }
++  }
++
++  @override
++  Widget build(BuildContext context) {
++    return Row(
++      mainAxisSize: MainAxisSize.min,
++      children: [
++        IconButton(
++          tooltip: '最小化',
++          onPressed: () => windowManager.minimize(),
++          icon: const Icon(Icons.remove),
++        ),
++        IconButton(
++          tooltip: _isMaximized ? '向下还原' : '最大化',
++          onPressed: _toggleMaximize,
++          icon: Icon(_isMaximized ? Icons.filter_none : Icons.crop_square),
++        ),
++      ],
++    );
++  }
++}
+diff --git a/lib/pages/info/info_page.dart b/lib/pages/info/info_page.dart
+index 66ab580..2949999 100644
+--- a/lib/pages/info/info_page.dart
++++ b/lib/pages/info/info_page.dart
+@@ -7,6 +7,7 @@ import 'package:flutter_modular/flutter_modular.dart';
+ import 'package:window_manager/window_manager.dart';
+ 
+ import 'package:kazumi/bean/appbar/drag_to_move_bar.dart' as dtb;
++import 'package:kazumi/bean/appbar/window_control_buttons.dart';
+ import 'package:kazumi/bean/card/bangumi_info_card.dart';
+ import 'package:kazumi/bean/card/network_img_layer.dart';
+ import 'package:kazumi/bean/dialog/adaptive_bottom_sheet.dart';
+@@ -376,6 +377,8 @@ class _InfoPageState extends State<InfoPage>
+                       bangumiItem: infoController.bangumiItem,
+                     ),
+                   ),
++                  if (isDesktop() && !showWindowButton)
++                    const WindowControlButtons(),
+                   if (isDesktop() && !showWindowButton)
+                     CloseButton(onPressed: () => windowManager.close()),
+                   SizedBox(width: 8),
+diff --git a/lib/pages/popular/popular_page.dart b/lib/pages/popular/popular_page.dart
+index bc2bdf1..2158a81 100644
+--- a/lib/pages/popular/popular_page.dart
++++ b/lib/pages/popular/popular_page.dart
+@@ -12,6 +12,7 @@ import 'package:window_manager/window_manager.dart';
+ import 'package:kazumi/services/logging/logger.dart';
+ import 'package:kazumi/services/platform/desktop_window_config.dart';
+ import 'package:kazumi/bean/appbar/drag_to_move_bar.dart' as dtb;
++import 'package:kazumi/bean/appbar/window_control_buttons.dart';
+ import 'package:kazumi/utils/device.dart';
+ 
+ class PopularPage extends StatefulWidget {
+@@ -249,6 +250,8 @@ class _PopularPageState extends State<PopularPage> {
+         onPressed: () => context.pushNamed('/settings/history/'),
+         icon: const Icon(Icons.history),
+       ),
++      if (isDesktop() && !DesktopWindowConfig.showWindowButton)
++        const WindowControlButtons(),
+       if (isDesktop() && !DesktopWindowConfig.showWindowButton)
+         IconButton(
+           tooltip: '退出',
