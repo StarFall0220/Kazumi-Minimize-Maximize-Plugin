@@ -8,6 +8,7 @@ All notable changes to this project are documented here.
 
 - Project title renamed to **Kazumi 最大化/最小化插件**
   (English subtitle: Kazumi Window Controls).
+- GitHub repository renamed to **Kazumi-Minimize-Maximize-Plugin**.
 
 ### Documentation
 
