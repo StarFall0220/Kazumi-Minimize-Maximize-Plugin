@@ -4,6 +4,11 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+### Changed
+
+- Project title renamed to **Kazumi 最大化/最小化插件**
+  (English subtitle: Kazumi Window Controls).
+
 ### Documentation
 
 - Rewrote `README.zh-CN.md` as a complete, self-contained Chinese guide:

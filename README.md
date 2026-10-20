@@ -1,7 +1,8 @@
-<h1 align="center">Kazumi Window Controls</h1>
+<h1 align="center">Kazumi 最大化/最小化插件</h1>
 
 <p align="center">
-  Minimize / maximize / restore buttons for <a href="https://github.com/Predidit/Kazumi">Kazumi</a>'s frameless title bar —
+  <b>Kazumi Window Controls</b> — minimize / maximize / restore buttons for
+  <a href="https://github.com/Predidit/Kazumi">Kazumi</a>'s frameless title bar,
   the same size, style and alignment as the existing close button.
 </p>
 

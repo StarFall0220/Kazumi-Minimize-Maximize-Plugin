@@ -1,4 +1,4 @@
-<h1 align="center">Kazumi 窗口控制按钮</h1>
+<h1 align="center">Kazumi 最大化/最小化插件</h1>
 
 <p align="center">
   为 <a href="https://github.com/Predidit/Kazumi">Kazumi</a> 的无边框标题栏补上「最小化 / 最大化 / 还原」按钮，
