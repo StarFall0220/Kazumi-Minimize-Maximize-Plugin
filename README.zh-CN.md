@@ -129,7 +129,7 @@ git clone --branch 2.3.9 --depth 1 https://github.com/Predidit/Kazumi.git
 cd Kazumi
 
 # 2. 下载并应用补丁
-curl -L https://github.com/StarFall0220/kazumi-window-controls/raw/main/patch/window-buttons.patch -o window-buttons.patch
+curl -L https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/raw/main/patch/window-buttons.patch -o window-buttons.patch
 git apply window-buttons.patch
 
 # 3. 拉依赖并构建

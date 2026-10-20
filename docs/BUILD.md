@@ -1,7 +1,7 @@
 # Build guide
 
 > **Don't want to build?** Two prebuilt packages are available in the
-> [latest release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest).
+> [latest release](https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/releases/latest).
 > The complete guide is in [INSTALL.md](../INSTALL.md).
 
 ## 0. Prebuilt packages (no build required)

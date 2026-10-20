@@ -2,7 +2,7 @@
 
 本文是 [BUILD.md](BUILD.md) 的中文版，步骤一一对应。
 
-> **不想自己构建？** 最新 [Release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest)
+> **不想自己构建？** 最新 [Release](https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/releases/latest)
 > 提供两个免编译成品，完整说明见 [INSTALL.zh-CN.md](../INSTALL.zh-CN.md)。
 
 ## 零、免编译成品（两种用法）
@@ -70,7 +70,7 @@ git clone --branch 2.3.9 --depth 1 https://github.com/Predidit/Kazumi.git
 cd Kazumi
 
 # 应用补丁（也可以在仓库根目录执行 .\scripts\apply-patch.ps1 自动完成克隆 + 打补丁）
-curl -L https://github.com/StarFall0220/kazumi-window-controls/raw/main/patch/window-buttons.patch -o window-buttons.patch
+curl -L https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/raw/main/patch/window-buttons.patch -o window-buttons.patch
 git apply window-buttons.patch
 
 flutter pub get

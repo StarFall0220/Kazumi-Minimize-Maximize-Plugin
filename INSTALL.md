@@ -11,7 +11,7 @@
 
 ## Downloads
 
-Grab the files from the [latest release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest):
+Grab the files from the [latest release](https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/releases/latest):
 
 | Package | Size | Good for |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ no service and no network component of its own; it only copies two files. You ca
 ## Source and license
 
 - Source, patch and full documentation:
-  <https://github.com/StarFall0220/kazumi-window-controls>
+  <https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin>
 - Upstream: <https://github.com/Predidit/Kazumi>
 - License: **GPL-3.0** (same as Kazumi). The portable package is a redistribution of the
   GPL-licensed Kazumi build with this patch applied; the complete corresponding source is

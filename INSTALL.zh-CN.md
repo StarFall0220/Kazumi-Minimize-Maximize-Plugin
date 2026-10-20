@@ -11,7 +11,7 @@
 
 ## 下载
 
-从 [最新 Release](https://github.com/StarFall0220/kazumi-window-controls/releases/latest) 下载：
+从 [最新 Release](https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin/releases/latest) 下载：
 
 | 文件 | 大小 | 适合谁 |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ Get-FileHash .\Kazumi-Window-Controls-Patcher-v1.1.0.zip -Algorithm SHA256
 
 ## 源码与许可证
 
-- 源码 / 补丁 / 完整文档：<https://github.com/StarFall0220/kazumi-window-controls>
+- 源码 / 补丁 / 完整文档：<https://github.com/StarFall0220/Kazumi-Minimize-Maximize-Plugin>
 - 上游：<https://github.com/Predidit/Kazumi>
 - 许可证：**GPL-3.0**（与 Kazumi 一致）。
   便携版是“官方 GPL 构建 + 本补丁”的再分发，完整对应源码在本仓库和上游均可获得。
